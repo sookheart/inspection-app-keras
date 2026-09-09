@@ -8,6 +8,8 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 from tensorflow import keras
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 
 
 # ── 페이지 설정 ──────────────────────────────────────────────────
@@ -28,6 +30,13 @@ st.caption("가죽 이미지를 입력하면 AI 모델이 정상 여부와 예�
 MODEL_PATH = "./weights/leather_model.keras"
 INPUT_IMG_SIZE = (224, 224)
 CLASSES = ["정상", "불량"]
+
+FONT_PATH = "fonts/NanumGothic-Regular.ttf"
+font_prop = fm.FontProperties(fname=FONT_PATH)
+
+plt.title("검사 결과", fontproperties=font_prop)
+plt.xlabel("분류", fontproperties=font_prop)
+plt.ylabel("확률", fontproperties=font_prop)
 
 
 # ─────────────────────────────────────────────────────────────────
